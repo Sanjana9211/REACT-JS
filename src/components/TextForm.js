@@ -5,13 +5,13 @@ import React from 'react'
 export default function TextForm(props) {
 
   const handleUpClick=() => {
-    console.log("Uppercase converter button was clicked");
+    // console.log("Uppercase converter button was clicked");
     let newText=text.toUpperCase();
     setText(newText);
   }
 
   const handleOnChange=(event) => {
-    console.log("Textarea was changed");
+    // console.log("Textarea was changed");
     setText(event.target.value);
   }
   
