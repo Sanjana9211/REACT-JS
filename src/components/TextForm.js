@@ -19,13 +19,19 @@ export default function TextForm(props) {
   const [text, setText] = useState('Enter text here');
   
   return (
-    <div>
-        <h1>{props.heading}</h1>
-        <div className="mb-3">
-        <label htmlFor="myBox" className="form-label"></label>
-        <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="14"></textarea>
-        <button className="btn btn-primary my-3" onClick={handleUpClick}>Convert to Uppercase</button>
-        </div>
-    </div>
+    <>
+      <div className="container">
+          <h1>{props.heading}</h1>
+          <div className="mb-3">
+          <label htmlFor="myBox" className="form-label"></label>
+          <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="14"></textarea>
+          <button className="btn btn-primary my-3" onClick={handleUpClick}>Convert to Uppercase</button>
+          </div>
+      </div>
+      <div className="container">
+        <h1>Your text summary</h1>
+        <p>{text.split(" ").length} words,{text.length} characters</p>
+      </div>
+    </>
   )
 }
