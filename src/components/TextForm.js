@@ -2,6 +2,7 @@ import { useState } from "react"
 import React from 'react'
 
 
+
 export default function TextForm(props) {
 
 
@@ -51,11 +52,11 @@ export default function TextForm(props) {
   
   return (
     <>
-      <div className="container">
+      <div className="container" style={{color: props.mode==='light'?'black':'white'}}>
           <h1>{props.heading}</h1>
           <div className="mb-3">
           <label htmlFor="myBox" className="form-label"></label>
-          <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="14"></textarea>
+          <textarea className="form-control" style={{backgroundColor: props.mode==='dark'?'grey':'white',color : props.mode==='light'?'black':'white'}} value={text} onChange={handleOnChange} id="myBox" rows="14"></textarea>
           <button className="btn btn-primary my-3 mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
           <button className="btn btn-primary my-3 mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
           <button className="btn btn-primary my-3 mx-1" onClick={handleTcClick}>Convert to TitleCase</button>
@@ -65,12 +66,12 @@ export default function TextForm(props) {
 
           </div>
       </div>
-      <div className="container">
+      <div className="container" style={{color: props.mode==='light'?'black':'white'}}>
         <h2>Your text summary</h2>
         <p>{text.split(" ").length} words,{text.length} characters</p>
         <p>{0.008 * text.split(" ").length} minutes required to read the text </p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter something in the text box above to preview it here"}</p>
       </div>
     </>
   )
