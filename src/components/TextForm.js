@@ -10,6 +10,7 @@ export default function TextForm(props) {
     // Get the text field
     var copyText = text;
     navigator.clipboard.writeText(copyText);
+    props.showAlert("Copied to Clipboard","success");
   
   }
 
@@ -18,18 +19,23 @@ export default function TextForm(props) {
     // console.log("Uppercase converter button was clicked");
     let newText=text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Uppercase","success");
   }
 
 
   const handleLoClick=()=>{
     let newText=text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase","success");
+
   }
 
 
   const handleClearClick=()=>{
     let newText='';
     setText(newText);
+    props.showAlert("Textarea cleared","success");
+
   }
   
 
@@ -39,6 +45,8 @@ export default function TextForm(props) {
       text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
     );;
     setText(newText);
+    props.showAlert("Converted to TitleCase","success");
+
   }
   
 

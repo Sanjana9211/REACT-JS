@@ -17,6 +17,9 @@ function App() {
       msg : message,
       type : type
     });
+    setTimeout(() => {
+      setAlert(null);
+    }, 1500);
   }
 
   const toggleMode=()=>{
@@ -41,7 +44,7 @@ function App() {
 
 
     <div className="container my-3">
-      <TextForm heading="Enter the text to analyze" mode={mode}/>
+      <TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert}/>
       {/* <About/> */}
     </div>
     
