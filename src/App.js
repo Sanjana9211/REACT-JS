@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React from 'react'
 import Alert from './components/Alert';
+import About from './components/About';
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
 
@@ -26,17 +28,27 @@ function App() {
     if(mode==='light'){
       setMode('dark');
       document.body.style.backgroundColor='#051d34';
-      showAlert('Dark mode has been enabled',"success");
+      showAlert('Blue mode has been enabled',"success");
+      document.title='TextUtils - Blue Mode';
+      // setInterval(()=>{
+      //   document.title='TextUtils is amazing!';
+      // },2000);
+      // setInterval(()=>{
+      //   document.title='Install TextUtils now!';
+      // },1500);
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert('Light mode has been enabled',"success");
+      document.title='TextUtils - Light Mode';
+
     }
   }
 
   return (
     <>
+    <BrowserRouter>
     <Navbar title="TextUtils" aboutText='About' mode={mode} toggleMode={toggleMode}/>
 
 
@@ -44,10 +56,14 @@ function App() {
 
 
     <div className="container my-3">
-      <TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert}/>
-      {/* <About/> */}
-    </div>
-    
+          <Routes>
+            <Route exact path="/about" element={<About />}>
+            </Route>
+            <Route exact path="/" element={<TextForm heading="Enter text to analyze"  mode={mode} showAlert={showAlert} />}>
+            </Route>
+          </Routes>
+        </div>
+        </BrowserRouter>
     </>
   );
 }
