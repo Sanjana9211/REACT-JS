@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 
 export default function About(props) {
 
@@ -9,8 +8,8 @@ export default function About(props) {
     // });
 
     let myStyle={
-        color : props.mode==='dark'?'white':'#051d34',
-        backgroundColor : props.mode==='dark'?'#051d34':'white'
+        color : props.mode==='light'?'#26292b':'white',
+        backgroundColor : props.mode==='dark'?'#26292b':props.mode==='burg'?'#660033':'white'
     }
 
   return (

@@ -27,9 +27,9 @@ function App() {
   const toggleMode=()=>{
     if(mode==='light'){
       setMode('dark');
-      document.body.style.backgroundColor='#051d34';
-      showAlert('Blue mode has been enabled',"success");
-      document.title='TextUtils - Blue Mode';
+      document.body.style.backgroundColor='#26292b';
+      showAlert('Dark mode has been enabled',"success");
+      // document.title='TextUtils - Blue Mode';
       // setInterval(()=>{
       //   document.title='TextUtils is amazing!';
       // },2000);
@@ -41,15 +41,37 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert('Light mode has been enabled',"success");
-      document.title='TextUtils - Light Mode';
+      // document.title='TextUtils - Light Mode';
 
     }
+  }
+
+  const toggleMode1=()=>{
+    setMode('light');
+    document.body.style.backgroundColor='white';
+    showAlert('Light mode has been enabled',"success");
+
+  }
+
+
+  const toggleMode2=()=>{
+    setMode('dark');
+    document.body.style.backgroundColor='#26292b';
+    showAlert('Dark mode has been enabled',"success");
+
+  }
+
+  const toggleMode3=()=>{
+    setMode('burg');
+    document.body.style.backgroundColor='#660033';
+    showAlert('Burgandy mode has been enabled',"success");
+
   }
 
   return (
     <>
     <BrowserRouter>
-    <Navbar title="TextUtils" aboutText='About' mode={mode} toggleMode={toggleMode}/>
+    <Navbar title="TextUtils" aboutText='About' mode={mode} toggleMode={toggleMode} toggleMode1={toggleMode1} toggleMode2={toggleMode2} toggleMode3={toggleMode3}/>
 
 
     <Alert alert={alert}/>
