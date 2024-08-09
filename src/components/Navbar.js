@@ -13,22 +13,13 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <Link className="nav-link " aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">{props.aboutText}</Link>
             </li>
           </ul>
-          {/* <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-primary" type="submit">Search</button>
-          </form> */}
-
           
-          {/* <div className={`form-check form-switch text-${props.mode==='dark'?'light':'dark'}`}>
-            <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-            <label className="form-check-label text" htmlFor="flexSwitchCheckDefault">Enable Blue mode</label>
-          </div> */}
           <button type="button" disabled={props.mode==='light'} onClick={props.toggleMode1} class="btn btn-primary btn-sm mx-1">Light Mode</button>
           <button type="button" disabled={props.mode==='dark'} onClick={props.toggleMode2} class="btn btn-primary btn-sm mx-1">Dark Mode</button>
           <button type="button" disabled={props.mode==='burg'} onClick={props.toggleMode3} class="btn btn-primary btn-sm mx-1">Burgandy Mode</button>

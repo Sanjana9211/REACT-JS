@@ -7,7 +7,6 @@ export default function TextForm(props) {
 
 
   function clipboardCopy() {
-    // Get the text field
     var copyText = text;
     navigator.clipboard.writeText(copyText);
     props.showAlert("Copied to Clipboard","success");
@@ -16,7 +15,6 @@ export default function TextForm(props) {
 
 
   const handleUpClick=() => {
-    // console.log("Uppercase converter button was clicked");
     let newText=text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to Uppercase","success");
@@ -51,7 +49,6 @@ export default function TextForm(props) {
   
 
   const handleOnChange=(event) => {
-    // console.log("Textarea was changed");
     setText(event.target.value);
   }
   
@@ -76,8 +73,8 @@ export default function TextForm(props) {
       </div>
       <div className="container" style={{color: props.mode==='light'?'black':'white'}}>
         <h2>Your text summary</h2>
-        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words,{text.length} characters</p>
-        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} minutes required to read the text </p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words,{text.length} characters</p>
+        <p>{0.008 * text.split(/\s+/).filter((element)=>{return element.length!==0}).length} minutes required to read the text </p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter something in the text box above to preview it here"}</p>
       </div>
